@@ -21,7 +21,7 @@ sexe = st.radio("Quel est votre sexe?", ("male", "femelle"))
 bmi = st.number_input("Quel est votre IMC?", min_value=0, max_value=50)
 nombre_enfants = st.number_input("Combien avez-vous d'enfants?", min_value=0, max_value=20)
 fumeur = st.radio("Êtes-vous fumeur?", ("yes", "no"))
-region = st.selectbox("Quelle est votre région?", ["Nord-Est", "Nord-Ouest", "Sud-Est", "Sud-Ouest"])
+region = st.selectbox("Quelle est votre région?", ["northeast", "northwest", "southeast", "southwest"])
 
 
 
@@ -31,6 +31,6 @@ liste_col = ['age', 'sex', 'bmi', 'children', 'smoker', 'region']
 
 if st.button("Démarrez l'estimation"):
     df = pd.DataFrame(np.array(liste).reshape(1, -1),columns = liste_col)
-    st.write(model_lr.predict(df))
+
     charges = int(model_lr.predict(df))
     st.success("Votre estimation est de {} $".format(charges))
