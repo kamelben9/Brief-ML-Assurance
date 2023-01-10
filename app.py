@@ -21,12 +21,13 @@ sexe = st.radio("Quel est votre sexe?", ("male", "femelle"))
 bmi = st.number_input("Quel est votre IMC?", min_value=0, max_value=50)
 nombre_enfants = st.number_input("Combien avez-vous d'enfants?", min_value=0, max_value=20)
 fumeur = st.radio("Êtes-vous fumeur?", ("yes", "no"))
+region = st.selectbox("Quelle est votre région?", ["Nord-Est", "Nord-Ouest", "Sud-Est", "Sud-Ouest"])
 
 
 
-liste = [int(age), sexe, bmi, int(nombre_enfants), fumeur]
+liste = [int(age), sexe, bmi, int(nombre_enfants), fumeur, region]
 
-liste_col = ['age', 'sex', 'bmi', 'children', 'smoker']
+liste_col = ['age', 'sex', 'bmi', 'children', 'smoker', 'region']
 
 if st.button("Démarrez l'estimation"):
     df = pd.DataFrame(np.array(liste).reshape(1, -1),columns = liste_col)
